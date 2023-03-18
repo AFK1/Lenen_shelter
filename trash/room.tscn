@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqj52f3vstlar"]
+
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_h055v"]
+[ext_resource type="Texture2D" uid="uid://wo0j8xwt83gj" path="res://assets/room.png" id="1_w5bbe"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_h055v")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(132, 49.5)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("1_w5bbe")
+
+[node name="Type_texture" type="Sprite2D" parent="."]
+position = Vector2(130, 48)

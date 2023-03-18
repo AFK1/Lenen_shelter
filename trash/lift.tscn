@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwmd1tlqthiaq"]
+
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_nviaa"]
+[ext_resource type="Texture2D" uid="uid://d14x270p1tb6v" path="res://assets/lift.png" id="1_tiw7y"]
+
+[node name="Lift" type="Node2D"]
+script = ExtResource("1_nviaa")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(32.8333, 49.25)
+scale = Vector2(0.656667, 0.656667)
+texture = ExtResource("1_tiw7y")

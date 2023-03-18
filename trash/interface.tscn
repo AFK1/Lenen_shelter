@@ -1,0 +1,427 @@
+[gd_scene load_steps=12 format=3 uid="uid://cglvio3m8onyx"]
+
+[ext_resource type="Texture2D" uid="uid://yne25mja03vq" path="res://assets/energy_ic.png" id="1_7g20s"]
+[ext_resource type="Theme" uid="uid://dwtk3ejpb1rb5" path="res://trash/theme.tres" id="1_626md"]
+[ext_resource type="Texture2D" uid="uid://bwlubloc7m1bq" path="res://assets/food_ic.png" id="2_h8vw0"]
+[ext_resource type="Texture2D" uid="uid://baclnx1e6y1h4" path="res://assets/water_ic.png" id="3_0ssy4"]
+[ext_resource type="Texture2D" uid="uid://dxtirayfpqvyr" path="res://assets/money_ic.png" id="5_a4v5g"]
+[ext_resource type="Texture2D" uid="uid://bpyq3x7fgeccr" path="res://assets/Tsubakura.png" id="5_iebc4"]
+[ext_resource type="Script" path="res://scripts/build_inter.gd" id="6_byn41"]
+[ext_resource type="Script" path="res://scripts/Build_room.gd" id="7_ypweq"]
+[ext_resource type="Texture2D" uid="uid://d14x270p1tb6v" path="res://assets/lift.png" id="8_yhqvn"]
+[ext_resource type="Script" path="res://scripts/pause_btn.gd" id="9_d0wxs"]
+[ext_resource type="Theme" uid="uid://b4dnln3pvapuj" path="res://trash/theme2.tres" id="9_k5cbt"]
+
+[node name="Interface" type="CanvasLayer"]
+layer = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stater" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_left = 1090.0
+offset_top = 221.0
+offset_right = 1393.0
+offset_bottom = 578.0
+
+[node name="Panel" type="Panel" parent="Control/Stater"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Stater"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 117.0
+
+[node name="Energy" type="Control" parent="Control/Stater/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Stater/VBoxContainer2/Energy"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/Stater/VBoxContainer2/Energy"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("1_7g20s")
+expand_mode = 1
+
+[node name="Food" type="Control" parent="Control/Stater/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Stater/VBoxContainer2/Food"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/Stater/VBoxContainer2/Food"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("2_h8vw0")
+expand_mode = 1
+
+[node name="Water" type="Control" parent="Control/Stater/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Stater/VBoxContainer2/Water"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/Stater/VBoxContainer2/Water"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("3_0ssy4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Stater"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 110.0
+offset_right = 199.0
+offset_bottom = 336.0
+texture = ExtResource("5_iebc4")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+offset_left = 555.0
+offset_right = 845.0
+offset_bottom = 107.0
+
+[node name="Energy" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Energy"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+value = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Energy"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("1_7g20s")
+expand_mode = 1
+
+[node name="Food" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Food"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+value = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Food"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("2_h8vw0")
+expand_mode = 1
+
+[node name="Water" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Water"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+theme = ExtResource("1_626md")
+value = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Water"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 289.0
+offset_bottom = 32.0
+texture = ExtResource("3_0ssy4")
+expand_mode = 1
+
+[node name="Money" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 151.0
+offset_bottom = 34.0
+
+[node name="Label" type="Label" parent="Control/Money"]
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 30.0
+theme = ExtResource("1_626md")
+text = "0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Money"]
+layout_mode = 0
+offset_left = 95.0
+offset_right = 131.0
+offset_bottom = 36.0
+texture = ExtResource("5_a4v5g")
+expand_mode = 1
+
+[node name="Build_inter" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 175.0
+offset_right = 1200.0
+offset_bottom = 825.0
+script = ExtResource("6_byn41")
+
+[node name="Panel" type="Panel" parent="Control/Build_inter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control/Build_inter"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 94.0
+offset_bottom = 53.0
+text = "close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Build_inter"]
+custom_minimum_size = Vector2(980, 575)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 65.0
+offset_right = 990.0
+offset_bottom = 640.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Build_inter/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Control/Build_inter/ScrollContainer/HBoxContainer" groups=["btn_disable_need"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("7_ypweq")
+
+[node name="ColorRect" type="ColorRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 290.0
+texture = ExtResource("8_yhqvn")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 300.0
+offset_right = 290.0
+offset_bottom = 340.0
+text = "BUILD"
+
+[node name="Label" type="Label" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 350.0
+offset_right = 290.0
+offset_bottom = 565.0
+text = "lift to go up and down"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/Build_inter/ScrollContainer/HBoxContainer" groups=["btn_disable_need"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("7_ypweq")
+
+[node name="ColorRect" type="ColorRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 290.0
+texture = ExtResource("2_h8vw0")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 300.0
+offset_right = 290.0
+offset_bottom = 340.0
+text = "BUILD"
+
+[node name="Label" type="Label" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 350.0
+offset_right = 290.0
+offset_bottom = 565.0
+text = "make more food"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Control/Build_inter/ScrollContainer/HBoxContainer" groups=["btn_disable_need"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("7_ypweq")
+
+[node name="ColorRect" type="ColorRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 290.0
+texture = ExtResource("3_0ssy4")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 300.0
+offset_right = 290.0
+offset_bottom = 340.0
+text = "BUILD"
+
+[node name="Label" type="Label" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 350.0
+offset_right = 290.0
+offset_bottom = 565.0
+text = "make more water"
+horizontal_alignment = 1
+
+[node name="Control4" type="Control" parent="Control/Build_inter/ScrollContainer/HBoxContainer" groups=["btn_disable_need"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("7_ypweq")
+
+[node name="ColorRect" type="ColorRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 290.0
+texture = ExtResource("1_7g20s")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 300.0
+offset_right = 290.0
+offset_bottom = 340.0
+text = "BUILD"
+
+[node name="Label" type="Label" parent="Control/Build_inter/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 350.0
+offset_right = 290.0
+offset_bottom = 565.0
+text = "make more energy"
+horizontal_alignment = 1
+
+[node name="Build_menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 8.0
+offset_right = 1393.0
+offset_bottom = 62.0
+text = "Build"
+
+[node name="Pause_btn" type="Button" parent="Control"]
+offset_left = 1280.0
+offset_top = 68.0
+offset_right = 1393.0
+offset_bottom = 120.0
+text = "Pause"
+script = ExtResource("9_d0wxs")
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 597.0
+offset_top = 104.0
+offset_right = 816.0
+offset_bottom = 181.0
+theme = ExtResource("9_k5cbt")
+text = "PAUSE"
+
+[connection signal="pressed" from="Control/Build_inter/Button" to="Control/Build_inter" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Build_inter/ScrollContainer/HBoxContainer/Control/Button" to="Control/Build_inter/ScrollContainer/HBoxContainer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Build_inter/ScrollContainer/HBoxContainer/Control2/Button" to="Control/Build_inter/ScrollContainer/HBoxContainer/Control2" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Build_inter/ScrollContainer/HBoxContainer/Control3/Button" to="Control/Build_inter/ScrollContainer/HBoxContainer/Control3" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Build_inter/ScrollContainer/HBoxContainer/Control4/Button" to="Control/Build_inter/ScrollContainer/HBoxContainer/Control4" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Build_menu" to="Control/Build_inter" method="_on_build_menu_pressed"]
